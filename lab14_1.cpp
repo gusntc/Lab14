@@ -17,3 +17,21 @@ int main(){
     cout << "\nMin = " << B[5];
     return 0;
 }
+
+void stat(const double A[],int N,double B[]){
+    double max = A[0] , min = A[0],sum = 0,powsum = 0,multiplysum =1,harmonicsum=0;
+    for(int i = 0 ;i < N ;i++){
+        if(A[i] > max) max = A[i];
+        if(A[i] < min) min = A[i];
+        sum += A[i];
+        powsum += pow(A[i],2);
+        multiplysum *= A[i];
+        harmonicsum += 1/A[i];
+    }
+    B[0]=sum/N;
+    B[1]=pow(((powsum/N)-(pow((sum/N),2))),0.5);
+    B[2]=pow(multiplysum,1/double(N));
+    B[3]=N/harmonicsum;
+    B[4]=max;
+    B[5]=min; 
+}
